@@ -6,3 +6,6 @@ from django.shortcuts import render
 #python -m django startproject proyecto4  #crear proyecto
 #cd proyecto4 # abrir carpeta
 #python manage.py startapp gestionPedidos # crear APP
+
+def busqueda(request):
+    return render(request, "busqueda.html")

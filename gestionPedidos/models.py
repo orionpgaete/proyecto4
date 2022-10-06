@@ -20,3 +20,6 @@ class Pedidos(models.Model):
     nrodcto = models.IntegerField()
     fecha_emision = models.DateField()
     entregado = models.BooleanField()
+
+    #python manage.py shell   -> abre consola
+    
