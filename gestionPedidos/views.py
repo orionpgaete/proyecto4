@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from gestionPedidos.models import Articulos
 
 # Create your views here.
 
@@ -12,5 +13,11 @@ def busqueda(request):
     return render(request, "busqueda.html")
 
 def buscar(request):
-    mensaje = "Articulo buscado: %r" %request.GET["prd"]
+    if request.GET["prd"]:
+        #mensaje = "Articulo buscado: %r" %request.GET["prd"]
+        producto = request.GET["prd"]
+        prod = Articulos.objects.filter(nombre__icontains=producto)
+        return render(request, "resultado.html", {"articulos":prod, "query":producto} )
+    else:
+        mensaje = "No has introducido nada de nada"
     return HttpResponse(mensaje)
