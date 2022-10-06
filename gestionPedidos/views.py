@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -9,3 +10,7 @@ from django.shortcuts import render
 
 def busqueda(request):
     return render(request, "busqueda.html")
+
+def buscar(request):
+    mensaje = "Articulo buscado: %r" %request.GET["prd"]
+    return HttpResponse(mensaje)
